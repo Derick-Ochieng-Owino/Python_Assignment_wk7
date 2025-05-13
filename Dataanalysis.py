@@ -35,6 +35,7 @@ print("\nTotal Units by Category:")
 print(sales_df.groupby('Category')['Units Sold'].sum())
 
 
+#LINE GRAPH
 plt.figure(figsize=(12, 5))
 monthly_trend = sales_df.groupby(sales_df['Date'].dt.month)['Sales Amount'].sum()
 monthly_trend.plot(kind='line', marker='o', color='teal', linewidth=2)
@@ -48,7 +49,7 @@ plt.tight_layout()
 plt.show()
 
 
-
+#BAR GRAPH
 plt.figure(figsize=(10, 5))
 category_avg = df.groupby('Category')['Sales'].mean().sort_values()
 
@@ -63,7 +64,7 @@ plt.tight_layout()
 plt.show()
 
 
-
+#HISTOGRAM
 plt.figure(figsize=(10, 5))
 sns.histplot(df['Sales'], bins=15, kde=True, 
              color='teal', alpha=0.6)
@@ -75,7 +76,7 @@ plt.tight_layout()
 plt.show()
 
 
-
+#SCATTERPLOT
 plt.figure(figsize=(10, 6))
 sns.scatterplot(data=df, x='Units', y='Sales', 
                 hue='Category', palette='Set2',
